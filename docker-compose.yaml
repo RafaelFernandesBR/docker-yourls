@@ -20,6 +20,8 @@ services:
       options:
         max-size: 20m
         max-file: "30"
+    networks:
+      - yourls
 
   yourls:
     # replace "image" with "build" for developing purpose
@@ -44,6 +46,11 @@ services:
       options:
         max-size: 20m
         max-file: "30"
+    networks:
+      - yourls
 
 volumes:
   mysql-data:
+networks:
+  yourls:
+    driver: bridge
